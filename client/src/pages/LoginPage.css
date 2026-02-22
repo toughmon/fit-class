@@ -1,0 +1,455 @@
+/* ============================================
+ * LoginPage 스타일
+ * - 밝고 깔끔한 라이트 테마
+ * - 플랫 & 미니멀 디자인
+ * - 부드러운 마이크로 애니메이션
+ * ============================================ */
+
+/* === 로그인 페이지 전체 컨테이너 === */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 밝고 깨끗한 배경 */
+    background: #f5f6fa;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* === 배경 장식 - 파스텔 톤 원형 도형 === */
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    /* 왜: 은은한 블러로 배경에 부드러운 포인트 */
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: float 10s ease-in-out infinite;
+}
+
+.bg-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: #dbeafe;
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+}
+
+.bg-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: #ede9fe;
+    bottom: -120px;
+    right: -120px;
+    animation-delay: -3s;
+}
+
+.bg-orb-3 {
+    width: 300px;
+    height: 300px;
+    background: #fce7f3;
+    top: 40%;
+    left: 55%;
+    animation-delay: -6s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(20px, -20px) scale(1.03);
+    }
+
+    66% {
+        transform: translate(-15px, 15px) scale(0.97);
+    }
+}
+
+/* === 로그인 카드 === */
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    /* 왜: 깨끗한 흰색 카드 + 부드러운 섀도우로 depth 표현 */
+    background: #ffffff;
+    border: 1px solid #e8eaf0;
+    border-radius: 24px;
+    padding: 40px 36px;
+    position: relative;
+    z-index: 1;
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.06),
+        0 1px 4px rgba(0, 0, 0, 0.04);
+    /* 등장 애니메이션 */
+    animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* === 브랜드 섹션 === */
+.brand-section {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.brand-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    /* 브랜드 포인트 컬러 */
+    background: #4f46e5;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.brand-icon:hover {
+    transform: scale(1.05);
+}
+
+.brand-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.brand-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e1b4b;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.brand-subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+/* === 탭 전환 버튼 === */
+.tab-switcher {
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 28px;
+    gap: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: #4f46e5;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+}
+
+.tab-btn:not(.active):hover {
+    color: #64748b;
+    background: #e2e8f0;
+}
+
+/* === 입력 폼 === */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    letter-spacing: 0.3px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    color: #cbd5e1;
+    transition: color 0.3s ease;
+    pointer-events: none;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 14px 14px 44px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    color: #1e293b;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #cbd5e1;
+}
+
+/* 포커스 상태 - 인디고 포인트 */
+.form-input:focus {
+    border-color: #818cf8;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+}
+
+/* 포커스 시 아이콘 색상 변경 */
+.input-wrapper:focus-within .input-icon {
+    color: #818cf8;
+}
+
+/* === 비밀번호 토글 버튼 === */
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-icon {
+    width: 18px;
+    height: 18px;
+    color: #cbd5e1;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover .toggle-icon {
+    color: #64748b;
+}
+
+/* === 비밀번호 찾기 링크 === */
+.forgot-password {
+    text-align: right;
+    margin-top: -8px;
+}
+
+.forgot-link {
+    font-size: 13px;
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: #4f46e5;
+}
+
+/* === 제출 버튼 === */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    /* 왜: 솔리드 인디고로 CTA 강조 - 그라데이션 대신 단색 사용 */
+    background: #4f46e5;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+    margin-top: 4px;
+}
+
+.submit-btn:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    background: #3730a3;
+}
+
+.btn-arrow {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* === 구분선 === */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    gap: 16px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.divider-text {
+    font-size: 13px;
+    color: #94a3b8;
+    white-space: nowrap;
+}
+
+/* === 소셜 로그인 버튼 === */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* 카카오 버튼 */
+.social-btn.kakao {
+    background: #fee500;
+    color: #191919;
+    border-color: #fee500;
+}
+
+.social-btn.kakao:hover {
+    background: #f5dc00;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(254, 229, 0, 0.35);
+}
+
+/* 구글 버튼 */
+.social-btn.google {
+    background: #fff;
+    color: #334155;
+}
+
+.social-btn.google:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* === 하단 텍스트 === */
+.footer-text {
+    text-align: center;
+    font-size: 12px;
+    color: #cbd5e1;
+    margin-top: 24px;
+}
+
+/* === 페이드 인 애니메이션 (이름 필드 등장 시) === */
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === 반응형 처리 === */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .brand-title {
+        font-size: 24px;
+    }
+
+    .bg-orb-1 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .bg-orb-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .bg-orb-3 {
+        width: 180px;
+        height: 180px;
+    }
+}
