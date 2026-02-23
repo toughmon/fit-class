@@ -1,13 +1,13 @@
-import LoginPage from './pages/LoginPage'
+// import LoginPage from './pages/LoginPage'  // 디자인 A (기존)
+import LoginPageV2 from './pages/LoginPageV2'   // 디자인 B (비교용)
 
 /**
  * App 컴포넌트
- * - 애플리케이션의 루트 컴포넌트
- * - 현재는 디자인 프리뷰를 위해 로그인 페이지를 직접 렌더링
- * - 추후 라우터 도입 시 여기서 라우팅 설정
+ * - 디자인 비교를 위해 LoginPageV2를 렌더링 중
+ * - 기존 디자인으로 돌아가려면 위 import를 전환하세요
  */
 function App() {
-  return <LoginPage />
+  return <LoginPageV2 />
 }
 
 export default App
